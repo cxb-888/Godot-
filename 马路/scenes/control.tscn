@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://8l7fj0nyf1lf"]
+
+[ext_resource type="Script" uid="uid://l0gh07fiunad" path="res://scenes/Global.gd" id="1_brbbq"]
+[ext_resource type="FontFile" uid="uid://0u750hvc5guh" path="res://fonts/Crackman.otf" id="1_r67kn"]
+[ext_resource type="Texture2D" uid="uid://bh16wfc0vd88j" path="res://graphics/player/player_simple.png" id="2_brbbq"]
+
+[sub_resource type="SystemFont" id="SystemFont_qtu10"]
+
+[node name="Control" type="Node" unique_id=1661257033]
+script = ExtResource("1_brbbq")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1601009435]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.4117647, 0.27450982, 0.42352942, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1348212572]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -352.5
+offset_top = 65.0
+offset_right = 352.5
+offset_bottom = 234.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_r67kn")
+theme_override_font_sizes/font_size = 140
+text = "car game"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1029800454]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_brbbq")
+
+[node name="Label2" type="Label" parent="." unique_id=1180652323]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = 110.0
+offset_right = 28.5
+offset_bottom = 133.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("SystemFont_qtu10")
+theme_override_font_sizes/font_size = 40
+text = "织梦工坊的练习"
+
+[node name="Label3" type="Label" parent="." unique_id=2131710155]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.978271
+offset_top = 184.0
+offset_right = 30.978271
+offset_bottom = 221.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
