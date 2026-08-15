@@ -1,0 +1,121 @@
+[gd_scene load_steps=8 format=3 uid="uid://pl4nnuwd4e6i"]
+
+[ext_resource type="Script" uid="uid://bjy7llcpanlcg" path="res://scripts/GameManager.gd" id="1_agh5a"]
+[ext_resource type="Texture2D" uid="uid://cboiu5qpnypb0" path="res://美术&音频资源包/AssetBundle/Sprites/ForestBackground.png" id="1_vk20x"]
+[ext_resource type="PackedScene" uid="uid://ubyvg2ymf10d" path="res://Scenes/player.tscn" id="2_0m143"]
+[ext_resource type="PackedScene" uid="uid://dy6padehahfrm" path="res://Scenes/slime.tscn" id="3_hs7te"]
+[ext_resource type="PackedScene" uid="uid://cp8pcg38v2i7" path="res://Scenes/bullet.tscn" id="4_vtqnk"]
+[ext_resource type="FontFile" uid="uid://chmh84puod5d2" path="res://美术&音频资源包/AssetBundle/Uranus_Pixel_11Px.ttf" id="6_0rywr"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0m143"]
+normal = Vector2(0.00040243877, -0.9999999)
+distance = 8.000336
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("spawn_timer", "score_label", "game_over_label")]
+y_sort_enabled = true
+script = ExtResource("1_agh5a")
+slime_scene = ExtResource("3_hs7te")
+spawn_timer = NodePath("Timer")
+score_label = NodePath("CanvasLayer/Label")
+game_over_label = NodePath("CanvasLayer/Game Over Label")
+
+[node name="background1" type="Sprite2D" parent="."]
+position = Vector2(-120, 0)
+texture = ExtResource("1_vk20x")
+metadata/_edit_lock_ = true
+
+[node name="background2" type="Sprite2D" parent="."]
+position = Vector2(120, 0)
+texture = ExtResource("1_vk20x")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+y_sort_enabled = true
+zoom = Vector2(2.38, 2.38)
+metadata/_edit_lock_ = true
+
+[node name="boundary" type="Node2D" parent="."]
+y_sort_enabled = true
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="boundary"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boundary/StaticBody2D"]
+position = Vector2(0, 143)
+shape = SubResource("WorldBoundaryShape2D_0m143")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="boundary"]
+position = Vector2(-101, -1)
+rotation = 1.5709573
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boundary/StaticBody2D2"]
+position = Vector2(1.0238245, 147.99983)
+shape = SubResource("WorldBoundaryShape2D_0m143")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="boundary"]
+position = Vector2(-101, -1)
+rotation = 1.5709573
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boundary/StaticBody2D3"]
+position = Vector2(0.9438192, -349.00018)
+rotation = 3.144894
+shape = SubResource("WorldBoundaryShape2D_0m143")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="boundary"]
+position = Vector2(-101, -1)
+rotation = 1.5709573
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boundary/StaticBody2D4"]
+position = Vector2(29.983742, -101.00483)
+rotation = 1.570642
+shape = SubResource("WorldBoundaryShape2D_0m143")
+
+[node name="player" parent="." instance=ExtResource("2_0m143")]
+position = Vector2(-203, 88)
+bullet_scene = ExtResource("4_vtqnk")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 19.0
+offset_top = 18.0
+offset_right = 163.0
+offset_bottom = 67.0
+theme_override_fonts/font = ExtResource("6_0rywr")
+theme_override_font_sizes/font_size = 48
+text = "分数："
+
+[node name="Game Over Label" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 319.0
+offset_top = 276.0
+offset_right = 851.0
+offset_bottom = 396.0
+theme_override_colors/font_outline_color = Color(0.34275597, 0.3134442, 0, 1)
+theme_override_constants/outline_size = 60
+theme_override_fonts/font = ExtResource("6_0rywr")
+theme_override_font_sizes/font_size = 120
+text = "Game Over"
+
+[node name="Game Over Label2" type="Label" parent="CanvasLayer/Game Over Label"]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 111.0
+offset_right = 335.0
+offset_bottom = 155.0
+theme_override_colors/font_outline_color = Color(0.34117648, 0.3137255, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/font_size = 31
+text = "game by cxb"
+horizontal_alignment = 1
+
+[node name="RestrartTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_spawn_slime"]
+[connection signal="timeout" from="RestrartTimer" to="player" method="_reload_scene"]

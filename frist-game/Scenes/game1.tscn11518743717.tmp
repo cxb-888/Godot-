@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://pl4nnuwd4e6i"]
+
+[ext_resource type="Texture2D" uid="uid://cboiu5qpnypb0" path="res://美术&音频资源包/AssetBundle/Sprites/ForestBackground.png" id="1_vk20x"]
+[ext_resource type="PackedScene" uid="uid://ubyvg2ymf10d" path="res://Scenes/player.tscn" id="2_0m143"]
+[ext_resource type="PackedScene" uid="uid://dy6padehahfrm" path="res://Scenes/slime.tscn" id="3_hs7te"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0m143"]
+normal = Vector2(0.00040243877, -0.9999999)
+distance = 8.000336
+
+[node name="Node2D" type="Node2D"]
+
+[node name="background1" type="Sprite2D" parent="."]
+position = Vector2(-120, 0)
+texture = ExtResource("1_vk20x")
+metadata/_edit_lock_ = true
+
+[node name="background2" type="Sprite2D" parent="."]
+position = Vector2(120, 0)
+texture = ExtResource("1_vk20x")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.38, 2.38)
+metadata/_edit_lock_ = true
+
+[node name="player" parent="Camera2D" instance=ExtResource("2_0m143")]
+position = Vector2(-203, 88)
+
+[node name="boundary" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="boundary"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boundary/StaticBody2D"]
+position = Vector2(0, 143)
+shape = SubResource("WorldBoundaryShape2D_0m143")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="boundary"]
+position = Vector2(-101, -1)
+rotation = 1.5709573
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boundary/StaticBody2D2"]
+position = Vector2(1.0238245, 147.99983)
+shape = SubResource("WorldBoundaryShape2D_0m143")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="boundary"]
+position = Vector2(-101, -1)
+rotation = 1.5709573
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boundary/StaticBody2D3"]
+position = Vector2(0.9438192, -349.00018)
+rotation = 3.144894
+shape = SubResource("WorldBoundaryShape2D_0m143")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="boundary"]
+position = Vector2(-101, -1)
+rotation = 1.5709573
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boundary/StaticBody2D4"]
+position = Vector2(29.983742, -101.00483)
+rotation = 1.570642
+shape = SubResource("WorldBoundaryShape2D_0m143")
+
+[node name="Area2D" parent="." instance=ExtResource("3_hs7te")]
+position = Vector2(112, 81)
+slime_speed = -50.0
