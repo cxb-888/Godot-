@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://caatwmgdj312r"]
+
+[ext_resource type="Texture2D" uid="uid://dkcqapxbbdgmr" path="res://assets/texiao/黑色特效.png" id="1_mpbbw"]
+[ext_resource type="Script" uid="uid://brhvpe1hiu8rl" path="res://scenes/hit_particles.gd" id="2_4pfba"]
+
+[sub_resource type="Curve" id="Curve_mpbbw"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.18333334, 1), 0.0, 0.0, 0, 0, Vector2(0.6433333, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_4pfba"]
+curve = SubResource("Curve_mpbbw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ucaof"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1.5, 1.5, 1.5)
+direction = Vector3(0, -1, 0)
+spread = 50.0
+initial_velocity_min = 125.0
+initial_velocity_max = 250.0
+gravity = Vector3(0, 600, 0)
+scale_curve = SubResource("CurveTexture_4pfba")
+
+[node name="hitParticles" type="GPUParticles2D" unique_id=612708672]
+position = Vector2(0, -16)
+emitting = false
+texture = ExtResource("1_mpbbw")
+lifetime = 0.2
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_ucaof")
+script = ExtResource("2_4pfba")

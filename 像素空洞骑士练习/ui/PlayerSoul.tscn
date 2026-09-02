@@ -1,0 +1,215 @@
+[gd_scene format=3 uid="uid://byfr1arwloie3"]
+
+[ext_resource type="Script" uid="uid://clh6gtoqhlykr" path="res://ui/playersoul.gd" id="1_t73vd"]
+[ext_resource type="Texture2D" uid="uid://sn2uiy58162n" path="res://assets/ui/灵魂槽01.png" id="2_twu05"]
+[ext_resource type="Texture2D" uid="uid://co17emyvn4tum" path="res://assets/ui/灵魂槽02.png" id="3_aboor"]
+[ext_resource type="Texture2D" uid="uid://cdwngfalvww36" path="res://assets/ui/灵魂槽03.png" id="4_m40q4"]
+[ext_resource type="Texture2D" uid="uid://njxakeidjajc" path="res://assets/ui/灵魂槽04.png" id="5_vwtdn"]
+[ext_resource type="Texture2D" uid="uid://d4gj4pvl6jjpa" path="res://assets/ui/灵魂槽05.png" id="6_cwp2p"]
+[ext_resource type="Texture2D" uid="uid://gvjof1md31f0" path="res://assets/ui/灵魂槽06.png" id="7_keffy"]
+[ext_resource type="Texture2D" uid="uid://nfvgydluingy" path="res://assets/ui/灵魂槽07.png" id="8_mc63q"]
+[ext_resource type="Texture2D" uid="uid://q6qfxqwlwi15" path="res://assets/ui/灵魂槽08.png" id="9_vghp5"]
+[ext_resource type="Texture2D" uid="uid://br2igp3pjheqr" path="res://assets/ui/灵魂槽09.png" id="10_8e1ap"]
+[ext_resource type="Texture2D" uid="uid://ddo161l1f3bye" path="res://assets/ui/灵魂槽10.png" id="11_awa6a"]
+
+[sub_resource type="Animation" id="Animation_be5xd"]
+resource_name = "0"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_twu05")]
+}
+
+[sub_resource type="Animation" id="Animation_1iavd"]
+resource_name = "1"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_aboor")]
+}
+
+[sub_resource type="Animation" id="Animation_aujhq"]
+resource_name = "2"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_m40q4")]
+}
+
+[sub_resource type="Animation" id="Animation_rsv1k"]
+resource_name = "3"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_vwtdn")]
+}
+
+[sub_resource type="Animation" id="Animation_wr76v"]
+resource_name = "4"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_cwp2p")]
+}
+
+[sub_resource type="Animation" id="Animation_n8w07"]
+resource_name = "5"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_keffy")]
+}
+
+[sub_resource type="Animation" id="Animation_kb7n3"]
+resource_name = "6"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_mc63q")]
+}
+
+[sub_resource type="Animation" id="Animation_8fo6o"]
+resource_name = "7"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_vghp5")]
+}
+
+[sub_resource type="Animation" id="Animation_7cgjo"]
+resource_name = "8"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_8e1ap")]
+}
+
+[sub_resource type="Animation" id="Animation_l0e8f"]
+resource_name = "9"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_awa6a")]
+}
+
+[sub_resource type="Animation" id="Animation_0dwbu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_twu05")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ggllv"]
+_data = {
+&"0": SubResource("Animation_be5xd"),
+&"1": SubResource("Animation_1iavd"),
+&"2": SubResource("Animation_aujhq"),
+&"3": SubResource("Animation_rsv1k"),
+&"4": SubResource("Animation_wr76v"),
+&"5": SubResource("Animation_n8w07"),
+&"6": SubResource("Animation_kb7n3"),
+&"7": SubResource("Animation_8fo6o"),
+&"8": SubResource("Animation_7cgjo"),
+&"9": SubResource("Animation_l0e8f"),
+&"RESET": SubResource("Animation_0dwbu")
+}
+
+[node name="PlayerSoul" type="CanvasLayer" unique_id=2145818161]
+script = ExtResource("1_t73vd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1548826232]
+position = Vector2(88, 56)
+scale = Vector2(2, 2)
+texture = ExtResource("2_twu05")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1283137599]
+libraries/ = SubResource("AnimationLibrary_ggllv")
+autoplay = &"9"

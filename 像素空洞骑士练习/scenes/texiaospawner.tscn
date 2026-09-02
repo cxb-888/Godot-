@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bqbllsq1w06hv"]
+
+[ext_resource type="Script" uid="uid://bnobosescxdap" path="res://scenes/texiaospawner.gd" id="1_8ipxs"]
+
+[node name="texiaospawner" type="Node2D" unique_id=793062298]
+script = ExtResource("1_8ipxs")

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ctllb0lo2hp4b"]
+
+[ext_resource type="Script" uid="uid://d2n1ner36fwey" path="res://scenes/fashu_spawner.gd" id="1_4jpuj"]
+
+[node name="FashuSpawner" type="Node2D" unique_id=305450103]
+script = ExtResource("1_4jpuj")

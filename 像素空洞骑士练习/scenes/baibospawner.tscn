@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://co4ddpthwxpss"]
+
+[ext_resource type="Script" uid="uid://cyx21enx4vmla" path="res://scenes/baibospawner.gd" id="1_vixm8"]
+
+[node name="baibospawner" type="Node2D" unique_id=1438439372]
+script = ExtResource("1_vixm8")
