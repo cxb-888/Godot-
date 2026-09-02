@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://dw325whr2u8dv"]
+
+[ext_resource type="Texture2D" uid="uid://bjalt4dj1qabd" path="res://graphics/characters/drone.png" id="1_lu2i1"]
+[ext_resource type="Script" uid="uid://q1j1wdje72fi" path="res://scene/entities/drones.gd" id="1_pvcsi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvcsi"]
+atlas = ExtResource("1_lu2i1")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufcxg"]
+atlas = ExtResource("1_lu2i1")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahfqw"]
+atlas = ExtResource("1_lu2i1")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqkts"]
+atlas = ExtResource("1_lu2i1")
+region = Rect2(96, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1og4m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvcsi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufcxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahfqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqkts")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_87ly3"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lu2i1"]
+radius = 136.03308
+
+[node name="Drones" type="CharacterBody2D" unique_id=1703315370]
+collision_layer = 4
+collision_mask = 11
+script = ExtResource("1_pvcsi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1807543395]
+sprite_frames = SubResource("SpriteFrames_1og4m")
+frame = 1
+frame_progress = 0.25568822
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1980507447]
+shape = SubResource("CircleShape2D_87ly3")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1292753241]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1518966344]
+shape = SubResource("CircleShape2D_lu2i1")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

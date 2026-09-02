@@ -1,0 +1,191 @@
+[gd_scene format=3 uid="uid://dw325whr2u8dv"]
+
+[ext_resource type="Texture2D" uid="uid://bjalt4dj1qabd" path="res://graphics/characters/drone.png" id="1_lu2i1"]
+[ext_resource type="Script" uid="uid://q1j1wdje72fi" path="res://scene/entities/drones.gd" id="1_pvcsi"]
+[ext_resource type="Shader" uid="uid://be2lupm3p6i5v" path="res://scene/shaders/drones.tres" id="2_lqkts"]
+[ext_resource type="Texture2D" uid="uid://cmxhfn7musgnk" path="res://graphics/fire/explosion.png" id="3_ufcxg"]
+[ext_resource type="Texture2D" uid="uid://d28hcekaounn2" path="res://graphics/lights/l2.png" id="4_ahfqw"]
+[ext_resource type="AudioStream" uid="uid://dqt1i5rjqnlkx" path="res://audio/explosion.wav" id="6_1og4m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1og4m"]
+shader = ExtResource("2_lqkts")
+shader_parameter/ColorParameter = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvcsi"]
+atlas = ExtResource("1_lu2i1")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufcxg"]
+atlas = ExtResource("1_lu2i1")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahfqw"]
+atlas = ExtResource("1_lu2i1")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqkts"]
+atlas = ExtResource("1_lu2i1")
+region = Rect2(96, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1og4m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvcsi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufcxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahfqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqkts")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_87ly3"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lu2i1"]
+radius = 136.03308
+
+[sub_resource type="Animation" id="Animation_ahfqw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExplosionSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_lqkts"]
+resource_name = "explosion"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExplosionSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"chain_reaction"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_1og4m"]
+resource_name = "red_light"
+length = 0.4
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.30302078),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.3, 1.2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1og4m"]
+_data = {
+&"RESET": SubResource("Animation_ahfqw"),
+&"explode": SubResource("Animation_lqkts"),
+&"red light": SubResource("Animation_1og4m")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ufcxg"]
+radius = 14.0
+
+[node name="Drones" type="CharacterBody2D" unique_id=1703315370 groups=["Drones"]]
+collision_layer = 4
+collision_mask = 11
+script = ExtResource("1_pvcsi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1807543395]
+material = SubResource("ShaderMaterial_1og4m")
+sprite_frames = SubResource("SpriteFrames_1og4m")
+frame = 1
+frame_progress = 0.25568822
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1980507447]
+visible = false
+shape = SubResource("CircleShape2D_87ly3")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1292753241]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1518966344]
+visible = false
+shape = SubResource("CircleShape2D_lu2i1")
+
+[node name="ExplosionSprite" type="Sprite2D" parent="." unique_id=222378859]
+visible = false
+texture = ExtResource("3_ufcxg")
+hframes = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=419210606]
+libraries/ = SubResource("AnimationLibrary_1og4m")
+
+[node name="CollisionArea" type="Area2D" parent="." unique_id=1469978478]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2" type="CollisionShape2D" parent="CollisionArea" unique_id=379851418]
+visible = false
+shape = SubResource("CircleShape2D_ufcxg")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1362338508]
+position = Vector2(-2, 2)
+color = Color(1, 0.15686275, 0.06666667, 1)
+texture = ExtResource("4_ahfqw")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=973252315]
+stream = ExtResource("6_1og4m")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="CollisionArea" to="." method="_on_collision_area_body_entered"]
